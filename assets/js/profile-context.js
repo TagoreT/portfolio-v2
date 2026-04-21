@@ -204,9 +204,30 @@
     rootSection.hidden = false;
   };
 
+  const renderAbout = (data, aboutRoot) => {
+    if (!aboutRoot) return;
+    const nodes = Array.from(aboutRoot.querySelectorAll('[data-about-paragraph]'));
+    if (!nodes.length) return;
+
+    const paragraphs = Array.isArray(data?.person?.about?.paragraphs)
+      ? data.person.about.paragraphs.map(safeText).filter(Boolean)
+      : [];
+
+    const fallback = safeText(data?.person?.summary) ? [safeText(data?.person?.summary)] : [];
+    const content = paragraphs.length ? paragraphs : fallback;
+    if (!content.length) return;
+
+    nodes.forEach((node, idx) => {
+      const text = content[idx] ?? '';
+      node.textContent = text;
+      node.toggleAttribute('hidden', !text);
+    });
+  };
+
   const init = async () => {
+    const about = qs('[data-page="about"]');
     const resume = qs('[data-page="resume"]');
-    if (!resume) return;
+    if (!about && !resume) return;
 
     try {
       const data =
@@ -218,15 +239,19 @@
         })());
       if (!data) return;
 
-      renderSummary(
-        data?.person?.summary,
-        qs('[data-resume-summary]', resume),
-        qs('[data-resume-summary-text]', resume),
-      );
-      renderEducation(data?.education, qs('[data-resume-education]', resume));
-      renderExperience(data?.experience, qs('[data-resume-experience]', resume));
-      renderAchievements(data?.achievements, qs('[data-resume-achievements]', resume));
-      renderSkills(data?.skills, qs('[data-resume-skills]', resume));
+      renderAbout(data, about);
+
+      if (resume) {
+        renderSummary(
+          data?.person?.summary,
+          qs('[data-resume-summary]', resume),
+          qs('[data-resume-summary-text]', resume),
+        );
+        renderEducation(data?.education, qs('[data-resume-education]', resume));
+        renderExperience(data?.experience, qs('[data-resume-experience]', resume));
+        renderAchievements(data?.achievements, qs('[data-resume-achievements]', resume));
+        renderSkills(data?.skills, qs('[data-resume-skills]', resume));
+      }
     } catch {
       // noop: resume can remain empty if fetch fails
     }

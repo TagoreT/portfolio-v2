@@ -16,7 +16,13 @@
     "person": {
       "fullName": "Tagore Athikela",
       "headline": "SaaS-Focused Full-Stack Developer (Security + UI/UX)",
-      "summary": "SaaS-focused Full‑Stack Developer who builds enterprise-grade, production-ready products end‑to‑end: pixel‑perfect UI from Figma, scalable backends + databases, and security-first flows (auth, middleware, clean data access). Strong in modern shipping workflows (Git, CI-friendly habits, cloud deployments) and rapid, high-quality delivery. Looking to partner with ambitious teams to build fast, beautiful, and reliable software."
+      "summary": "SaaS-focused Full‑Stack Developer who builds enterprise-grade, production-ready products end‑to‑end: pixel‑perfect UI from Figma, scalable backends + databases, and security-first flows (auth, middleware, clean data access). Strong in modern shipping workflows (Git, CI-friendly habits, cloud deployments) and rapid, high-quality delivery. Looking to partner with ambitious teams to build fast, beautiful, and reliable software.",
+      "about": {
+        "paragraphs": [
+          "I’m Tagore Athikela — a SaaS-focused Full‑Stack Developer who helps teams ship production‑ready products that look premium and run reliably. I turn complex Figma into pixel‑perfect, responsive UI, and back it with scalable backend foundations, clean data access, and security‑first implementation.",
+          "I work best with ambitious teams that care about speed and quality: crisp UX, predictable engineering, and release-ready delivery. If you need someone who can own features end‑to‑end — from interface polish to auth, database, and deployment — I’m ready."
+        ]
+      }
     },
     "contact": {
       "phone": {
