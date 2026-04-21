@@ -1351,6 +1351,19 @@ main {
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 15px;
+  background: var(--eerie-black-1);
+}
+
+.project-open-link {
+  width: 100%;
+  display: block;
+}
+
+/* project open label removed (card itself is the link) */
+
+.project-meta {
+  display: grid;
+  gap: 4px;
 }
 
 .project-img::before {
@@ -1363,9 +1376,11 @@ main {
   background: transparent;
   z-index: 1;
   transition: var(--transition-1);
+  pointer-events: none;
 }
 
-.project-item>a:hover .project-img::before {
+.project-item>a:hover .project-img::before,
+.project-item .project-open-link:hover .project-img::before {
   background: hsla(0, 0%, 0%, 0.5);
 }
 
@@ -1386,13 +1401,55 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item>a:hover .project-item-icon-box {
+.project-item>a:hover .project-item-icon-box,
+.project-item .project-open-link:hover .project-item-icon-box {
   --scale: 1;
   opacity: 1;
 }
 
 .project-item-icon-box ion-icon {
   --ionicon-stroke-width: 50px;
+}
+
+.project-embed {
+  width: var(--embed-viewport-width, 1280px);
+  height: var(--embed-viewport-height, 720px);
+  border: 0;
+  background: var(--eerie-black-1);
+  transform-origin: 0 0;
+  display: block;
+}
+
+.project-embed-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--eerie-black-1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.project-embed-fallback {
+  display: flex;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 14px;
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  line-height: 1.4;
+  background: linear-gradient(to bottom, transparent, hsla(240, 2%, 12%, 0.9));
+  align-items: center;
+  opacity: 0;
+  transition: var(--transition-1);
+  pointer-events: none;
+}
+
+.project-item .project-open-link:hover .project-embed-fallback,
+.project-item .project-open-link:focus-visible .project-embed-fallback {
+  opacity: 1;
 }
 
 .project-img img {
@@ -1402,7 +1459,8 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item>a:hover img {
+.project-item>a:hover img,
+.project-item .project-open-link:hover img {
   transform: scale(1.1);
 }
 

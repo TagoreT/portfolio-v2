@@ -200,118 +200,163 @@
   "projects": {
     "portfolioAndClientWork": [
       {
+        "name": "Biosure Lab Landing Page",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://biosure.vercel.app/"
+          }
+        ]
+      },
+      {
+        "name": "Lavish Mandi Restaurant",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://lavish-mandi.vercel.app/"
+          }
+        ]
+      },
+      {
+        "name": "QR Code Generator",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://qr-code-generator-seven-nu.vercel.app/"
+          }
+        ]
+      },
+      {
+        "name": "QR Menu Manager",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://qr-menu-tan.vercel.app/login"
+          }
+        ]
+      },
+      {
+        "name": "Hyderabad Tattoo Studio",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://tattoo-studio-gold.vercel.app/"
+          }
+        ]
+      },
+      {
+        "name": "ServiceNow UX Services",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://servicesnow-ux.vercel.app/"
+          }
+        ]
+      },
+      {
+        "name": "Money Lender Project",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://v0-moneylender-application.vercel.app/"
+          }
+        ]
+      },
+      {
         "name": "ElectroBike Landing Page",
         "type": "web",
         "description": null,
         "tech": [],
-        "links": []
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://electrobike-landing.vercel.app/"
+          }
+        ]
       },
       {
-        "name": "Tattoo Studio Website",
+        "name": "Toola Product",
         "type": "web",
         "description": null,
         "tech": [],
-        "links": []
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://toola-landing-page.vercel.app/"
+          }
+        ]
       },
       {
-        "name": "Toola Landing Page",
+        "name": "EduCon",
         "type": "web",
         "description": null,
         "tech": [],
-        "links": []
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://educon-three.vercel.app/"
+          }
+        ]
       },
       {
-        "name": "EduCon Education Website",
+        "name": "Viswa Handyman",
         "type": "web",
         "description": null,
         "tech": [],
-        "links": []
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://viswa-jade.vercel.app/"
+          }
+        ]
       },
       {
-        "name": "Moneylender Application UI",
-        "type": "ui",
-        "description": null,
-        "tech": [],
-        "links": []
-      },
-      {
-        "name": "Viswa Services Showcase",
+        "name": "Mandapeta Sweet Mart Landing Page",
         "type": "web",
         "description": null,
         "tech": [],
-        "links": []
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://mandapetasweetmart.vercel.app/"
+          }
+        ]
       }
     ],
-    "academic": [
-      {
-        "name": "Lightweight Encryption Analysis",
-        "type": "academic",
-        "timeframe": "MCA Project",
-        "problem": "Compare lightweight cryptographic algorithms for IoT devices.",
-        "work": [
-          "Comparative study of AES, DES, and FANTOM for IoT devices.",
-          "Developed a performance evaluation framework using Python and hardware like Arduino NodeMCU and Raspberry Pi.",
-          "Visualized findings using Power BI and presented outcomes to department stakeholders."
-        ],
-        "tech": [
-          "Python",
-          "C",
-          "Google Colab",
-          "Power BI",
-          "Arduino IDE"
-        ],
-        "hardware": [
-          "Arduino NodeMCU",
-          "Raspberry Pi"
-        ],
-        "recognition": [
-          "Appreciated by project guide and Head of Department."
-        ],
-        "links": []
-      },
-      {
-        "name": "Online Shopping Website",
-        "type": "academic",
-        "timeframe": "Degree Project",
-        "problem": "Build an e-commerce website with end-to-end shopping flow.",
-        "work": [
-          "Built an e-commerce website with user authentication, cart functionality, and checkout system.",
-          "Designed and implemented the database schema collaboratively using MySQL."
-        ],
-        "tech": [
-          "Laravel",
-          "PHP",
-          "HTML",
-          "CSS",
-          "Bootstrap",
-          "MySQL",
-          "Git",
-          "VS Code"
-        ],
-        "recognition": [
-          "Received Principal’s appreciation for outstanding contribution."
-        ],
-        "links": []
-      },
-      {
-        "name": "MERN + OpenAI Chatbot",
-        "type": "project",
-        "timeframe": null,
-        "problem": "Build a chatbot with real-world auth and security.",
-        "work": [
-          "Built a chatbot using MERN stack and OpenAI integration.",
-          "Integrated advanced authentication and middleware with emphasis on security implementation."
-        ],
-        "tech": [
-          "MongoDB",
-          "Express",
-          "React",
-          "Node.js",
-          "OpenAI"
-        ],
-        "links": []
-      }
-    ]
+    "academic": []
   },
   "achievements": [
     "Recognized by the HOD and project guide for impactful contributions to college website development/maintenance and the MCA final-year project.",
