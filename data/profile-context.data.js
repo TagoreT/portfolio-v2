@@ -102,10 +102,10 @@
         "endDate": null,
         "location": null,
         "highlights": [
-          "Shipped production-ready, responsive interfaces by translating complex Figma designs into clean, scalable UI.",
-          "Contributed across front-end and back-end: building features with maintainable code and reliable database integration.",
-          "Improved development velocity by integrating AI-assisted tooling into day-to-day workflows.",
-          "Delivered features on tight timelines by collaborating effectively with cross-functional teams."
+          "Built pixel-perfect, responsive SaaS UI from complex Figma designs.",
+          "Delivered full‑stack features with clean, scalable architecture and reliable DB integration.",
+          "Implemented security‑minded flows (auth + middleware patterns) in production codebases.",
+          "Shipped fast with strong dev workflows (AI-assisted iteration, Git, deployments)."
         ],
         "stack": [
           "Next.js",
@@ -136,10 +136,10 @@
         "endDate": "2024-12",
         "location": null,
         "highlights": [
-          "Optimized UI/UX workflows and reduced front-end development time by 20%.",
-          "Found and fixed functional issues that improved performance and overall user experience.",
-          "Partnered with developers and stakeholders to align UX decisions with delivery timelines.",
-          "Helped expand and refine existing features to improve user engagement."
+          "Optimized UI/UX workflows, reducing front-end build time by 20%.",
+          "Improved UX quality by identifying and fixing functional issues.",
+          "Aligned design decisions with stakeholders and delivery timelines.",
+          "Enhanced existing flows to increase engagement and usability."
         ],
         "stack": [
           "HTML",
@@ -239,7 +239,6 @@
     "achievements": [
       "Recognized by the HOD and project guide for impactful contributions to college website development/maintenance and the MCA final-year project.",
       "Awarded the Principal’s Appreciation Certificate for strong involvement and ownership during degree college events week.",
-      "Delivered 5+ live project demos — responsive landing pages and full-stack apps using modern stacks (Next.js, Tailwind, Go, PostgreSQL, etc.).",
       "Built a MERN + OpenAI chatbot with real-world authentication and middleware, demonstrating secure, production-minded implementation.",
       "Collaborated in cross-functional internship teams to deliver production-ready features within strict timelines."
     ],

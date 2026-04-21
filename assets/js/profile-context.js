@@ -24,7 +24,7 @@
   const joinNonEmpty = (items, sep = ' · ') =>
     (Array.isArray(items) ? items : []).map(safeText).filter(Boolean).join(sep);
 
-  const createTimelineItem = ({ title, range, textLines }) => {
+  const createTimelineItem = ({ title, range, textLines, bodyNode }) => {
     const li = document.createElement('li');
     li.className = 'timeline-item';
 
@@ -35,11 +35,17 @@
     const span = document.createElement('span');
     span.textContent = safeText(range);
 
+    li.append(h4, span);
+
+    if (bodyNode) {
+      li.appendChild(bodyNode);
+      return li;
+    }
+
     const p = document.createElement('p');
     p.className = 'timeline-text';
     p.textContent = joinNonEmpty(textLines, ' ');
-
-    li.append(h4, span, p);
+    li.appendChild(p);
     return li;
   };
 
@@ -75,17 +81,40 @@
       const title = [role, company].filter(Boolean).join(' — ');
       const range = formatRange(x?.startDate, x?.endDate);
 
-      const highlights = Array.isArray(x?.highlights) ? x.highlights : [];
+      const highlights = (Array.isArray(x?.highlights) ? x.highlights : [])
+        .map(safeText)
+        .filter(Boolean)
+        .slice(0, 4);
       const stack = joinNonEmpty(x?.stack);
       const tools = joinNonEmpty(x?.tools);
 
-      const textLines = [
-        joinNonEmpty(highlights, ' '),
-        stack ? `Stack: ${stack}.` : '',
-        tools ? `Tools: ${tools}.` : '',
+      const body = document.createElement('div');
+      body.className = 'timeline-body';
+
+      if (highlights.length) {
+        const ul = document.createElement('ul');
+        ul.className = 'timeline-bullets';
+        highlights.forEach((h) => {
+          const li = document.createElement('li');
+          li.textContent = h;
+          ul.appendChild(li);
+        });
+        body.appendChild(ul);
+      }
+
+      const metaParts = [
+        stack ? `Stack: ${stack}` : '',
+        tools ? `Tools: ${tools}` : '',
       ].filter(Boolean);
 
-      return createTimelineItem({ title, range, textLines });
+      if (metaParts.length) {
+        const p = document.createElement('p');
+        p.className = 'timeline-meta';
+        p.textContent = metaParts.join(' • ');
+        body.appendChild(p);
+      }
+
+      return createTimelineItem({ title, range, bodyNode: body });
     });
 
     root.replaceChildren(...items);
