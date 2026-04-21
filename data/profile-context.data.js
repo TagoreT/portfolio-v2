@@ -64,12 +64,18 @@
       "programmingLanguages": [
         "Python",
         "Go",
-        "Java"
+        "Java",
+        "Dart"
+      ],
+      "mobileDevelopment": [
+        "Flutter",
+        "React Native"
       ],
       "backendAndDatabases": [
         "MySQL",
         "PostgreSQL",
-        "Firebase"
+        "Firebase",
+        "Supabase"
       ],
       "devTools": [
         "Git",
@@ -77,8 +83,18 @@
         "Cursor",
         "v0",
         "VS Code",
+        "Android Studio",
         "Postman",
-        "n8n"
+        "n8n",
+        "Docker",
+        "Claude Code",
+        "Clawbot"
+      ],
+      "cloudAndInfra": [
+        "AWS",
+        "S3",
+        "EC2",
+        "Coolify"
       ],
       "platforms": [
         "Vercel",
@@ -90,7 +106,9 @@
         "AI Agents",
         "MCP Servers",
         "Computer Networks",
-        "Database Management Systems"
+        "DBMS",
+        "Multi-tenant architecture",
+        "DB/Schema per tenant"
       ]
     },
     "experience": [

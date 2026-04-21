@@ -16,5 +16,18 @@
       legendMore: 'More',
     },
   };
+
+  window.siteConfig.skills = {
+    groups: [
+      { key: 'webDevelopment', label: 'Web Development', icon: 'layers-outline' },
+      { key: 'programmingLanguages', label: 'Languages', icon: 'code-slash-outline' },
+      { key: 'mobileDevelopment', label: 'Mobile', icon: 'phone-portrait-outline' },
+      { key: 'backendAndDatabases', label: 'Backend & Databases', icon: 'server-outline' },
+      { key: 'cloudAndInfra', label: 'Cloud & Infra', icon: 'cloud-outline' },
+      { key: 'platforms', label: 'Platforms', icon: 'cloud-outline' },
+      { key: 'devTools', label: 'Dev Tools', icon: 'hammer-outline' },
+      { key: 'concepts', label: 'Concepts', icon: 'sparkles-outline' },
+    ],
+  };
 })();
 

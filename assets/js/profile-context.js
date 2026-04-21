@@ -135,37 +135,65 @@
   const renderSkills = (skills, root) => {
     if (!root) return;
 
-    const groups = [
-      { key: 'webDevelopment', label: 'Web development' },
-      { key: 'programmingLanguages', label: 'Programming languages' },
-      { key: 'backendAndDatabases', label: 'Backend & databases' },
-      { key: 'devTools', label: 'Dev tools' },
-      { key: 'platforms', label: 'Platforms' },
-      { key: 'concepts', label: 'Concepts' },
-    ];
+    const configGroups = window.siteConfig?.skills?.groups;
+    const groups = Array.isArray(configGroups)
+      ? configGroups
+      : [
+        { key: 'webDevelopment', label: 'Web Development', icon: 'layers-outline' },
+        { key: 'programmingLanguages', label: 'Languages', icon: 'code-slash-outline' },
+        { key: 'backendAndDatabases', label: 'Backend & Databases', icon: 'server-outline' },
+        { key: 'devTools', label: 'Dev Tools', icon: 'hammer-outline' },
+        { key: 'platforms', label: 'Platforms', icon: 'cloud-outline' },
+        { key: 'concepts', label: 'Concepts', icon: 'sparkles-outline' },
+      ];
 
-    const parts = groups
-      .map(({ key, label }) => {
-        const values = joinNonEmpty(skills?.[key]);
-        if (!values) return null;
-        return `${label}: ${values}.`;
-      })
-      .filter(Boolean);
-
-    const wrapper = document.createElement('div');
-    wrapper.className = 'title-wrapper';
+    const header = document.createElement('div');
+    header.className = 'title-wrapper';
 
     const h5 = document.createElement('h5');
     h5.className = 'h5';
-    h5.textContent = 'Tech toolkit';
+    h5.textContent = 'Tech Toolkit';
+    header.appendChild(h5);
 
-    wrapper.appendChild(h5);
+    const grid = document.createElement('div');
+    grid.className = 'skill-groups';
 
-    const p = document.createElement('p');
-    p.className = 'timeline-text';
-    p.textContent = parts.join(' ');
+    groups.forEach(({ key, label, icon }) => {
+      const items = (Array.isArray(skills?.[key]) ? skills[key] : []).map(safeText).filter(Boolean);
+      if (!items.length) return;
 
-    root.replaceChildren(wrapper, p);
+      const card = document.createElement('div');
+      card.className = 'skill-group';
+
+      const cardHeader = document.createElement('div');
+      cardHeader.className = 'skill-group-header';
+
+      const iconBox = document.createElement('span');
+      iconBox.className = 'skill-group-icon';
+      const ion = document.createElement('ion-icon');
+      ion.setAttribute('name', safeText(icon) || 'ellipse-outline');
+      iconBox.appendChild(ion);
+
+      const title = document.createElement('div');
+      title.className = 'skill-group-title';
+      title.textContent = safeText(label);
+
+      cardHeader.append(iconBox, title);
+
+      const tags = document.createElement('div');
+      tags.className = 'skill-tags';
+      items.forEach((t) => {
+        const tag = document.createElement('span');
+        tag.className = 'skill-tag';
+        tag.textContent = t;
+        tags.appendChild(tag);
+      });
+
+      card.append(cardHeader, tags);
+      grid.appendChild(card);
+    });
+
+    root.replaceChildren(header, grid);
   };
 
   const renderSummary = (summary, rootSection, rootText) => {
