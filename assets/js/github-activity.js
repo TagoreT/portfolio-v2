@@ -91,17 +91,31 @@
     return `${year}-${mm}-${dd}`;
   };
 
+  const getCssVar = (name, fallback) => {
+    try {
+      const value = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+      return value || fallback;
+    } catch {
+      return fallback;
+    }
+  };
+
   const applyThemeToSvg = (svg) => {
     // Make the imported SVG blend into the portfolio theme.
     svg.style.background = 'transparent';
 
-    // Most GH-chart SVGs use these GitHub colors; map them into a darker palette.
+    const surface = getCssVar('--eerie-black-1', '#111318');
+    const textMuted = getCssVar('--light-gray-70', 'rgba(180,180,180,0.7)');
+    const accent = getCssVar('--orange-yellow-crayola', '#2fbf71');
+    const accent2 = getCssVar('--vegas-gold', '#34d399');
+
+    // Most GH-chart SVGs use these GitHub colors; map them into the site palette.
     const fillMap = new Map([
-      ['#ebedf0', '#1a1b1f'], // empty
-      ['#c6e48b', '#2b6a3f'],
-      ['#7bc96f', '#2f8f4f'],
-      ['#239a3b', '#2fbf71'],
-      ['#196127', '#34d399'], // highest
+      ['#ebedf0', surface], // empty
+      ['#c6e48b', accent],
+      ['#7bc96f', accent],
+      ['#239a3b', accent2],
+      ['#196127', accent2], // highest
     ]);
 
     svg.querySelectorAll('rect[fill]').forEach((r) => {
@@ -112,7 +126,7 @@
 
     // Dim month/week labels if present.
     svg.querySelectorAll('text').forEach((t) => {
-      t.setAttribute('fill', '#b6b6b6');
+      t.setAttribute('fill', textMuted);
       t.setAttribute('font-family', 'Poppins, sans-serif');
       t.setAttribute('font-size', t.getAttribute('font-size') ?? '10');
     });

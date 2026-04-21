@@ -23,39 +23,42 @@
 
   /* gradient */
 
-  --bg-gradient-onyx: linear-gradient(to bottom right,
-      hsl(240, 1%, 25%) 3%,
-      hsl(0, 0%, 19%) 97%);
-  --bg-gradient-jet: linear-gradient(to bottom right,
-      hsla(240, 1%, 18%, 0.251) 0%,
-      hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
-  --bg-gradient-yellow-1: linear-gradient(to bottom right,
-      hsl(45, 100%, 71%) 0%,
-      hsla(36, 100%, 69%, 0) 50%);
+  --bg-gradient-onyx: linear-gradient(135deg,
+      hsla(220, 18%, 12%, 0.95) 0%,
+      hsla(220, 18%, 7%, 0.98) 60%,
+      hsla(220, 18%, 6%, 1) 100%);
+  --bg-gradient-jet: linear-gradient(135deg,
+      hsla(220, 16%, 18%, 0.55) 0%,
+      hsla(220, 16%, 8%, 0) 55%),
+    hsl(220, 18%, 10%);
+  --bg-gradient-yellow-1: linear-gradient(135deg,
+      hsla(189, 94%, 50%, 0.18) 0%,
+      hsla(189, 94%, 50%, 0) 55%);
   --bg-gradient-yellow-2: linear-gradient(135deg,
-      hsla(45, 100%, 71%, 0.251) 0%,
-      hsla(35, 100%, 68%, 0) 59.86%), hsl(240, 2%, 13%);
-  --border-gradient-onyx: linear-gradient(to bottom right,
-      hsl(0, 0%, 25%) 0%,
-      hsla(0, 0%, 25%, 0) 50%);
-  --text-gradient-yellow: linear-gradient(to right,
-      hsl(45, 100%, 72%),
-      hsl(35, 100%, 68%));
+      hsla(189, 94%, 50%, 0.14) 0%,
+      hsla(47, 100%, 62%, 0.06) 55%),
+    hsl(220, 18%, 10%);
+  --border-gradient-onyx: linear-gradient(135deg,
+      hsla(220, 14%, 28%, 0.95) 0%,
+      hsla(220, 14%, 28%, 0) 55%);
+  --text-gradient-yellow: linear-gradient(90deg,
+      hsl(189, 94%, 55%) 0%,
+      hsl(47, 100%, 62%) 100%);
 
   /* solid */
 
-  --jet: hsl(0, 0%, 22%);
-  --onyx: hsl(240, 1%, 17%);
-  --eerie-black-1: hsl(240, 2%, 13%);
-  --eerie-black-2: hsl(240, 2%, 12%);
-  --smoky-black: hsl(0, 0%, 7%);
+  --jet: hsl(220, 12%, 24%);
+  --onyx: hsl(220, 16%, 14%);
+  --eerie-black-1: hsl(220, 18%, 11%);
+  --eerie-black-2: hsl(220, 18%, 9%);
+  --smoky-black: hsl(220, 20%, 6%);
   --white-1: hsl(0, 0%, 100%);
-  --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
-  --light-gray: hsl(0, 0%, 84%);
-  --light-gray-70: hsla(0, 0%, 84%, 0.7);
-  --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --white-2: hsl(210, 40%, 98%);
+  --orange-yellow-crayola: hsl(189, 94%, 55%);
+  --vegas-gold: hsl(47, 100%, 62%);
+  --light-gray: hsl(215, 20%, 78%);
+  --light-gray-70: hsla(215, 20%, 78%, 0.7);
+  --bittersweet-shimmer: hsl(0, 72%, 58%);
 
   /**
    * typography
