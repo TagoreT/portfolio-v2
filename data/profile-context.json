@@ -10,7 +10,11 @@
   },
   "person": {
     "fullName": "Tagore Athikela",
-    "headline": "SaaS-Focused Full-Stack Developer (Security + UI/UX)",
+    "headline": "SaaS-Focused Full-Stack Developer",
+    "birthday": {
+      "iso": "2002-03-19",
+      "display": "March 19, 2002"
+    },
     "summary": "SaaS-focused Full‑Stack Developer who builds enterprise-grade, production-ready products end‑to‑end: pixel‑perfect UI from Figma, scalable backends + databases, and security-first flows (auth, middleware, clean data access). Strong in modern shipping workflows (Git, CI-friendly habits, cloud deployments) and rapid, high-quality delivery. Looking to partner with ambitious teams to build fast, beautiful, and reliable software.",
     "about": {
       "paragraphs": [
@@ -71,7 +75,7 @@
       }
     ],
     "location": {
-      "city": null,
+      "city": "Peddapuram",
       "state": "Andhra Pradesh",
       "country": "India"
     }

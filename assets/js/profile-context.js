@@ -276,6 +276,49 @@
     list.replaceChildren(...items);
   };
 
+  const renderSidebar = (data) => {
+    const nameNode = qs('[data-person-name]');
+    const headlineNode = qs('[data-person-headline]');
+    const emailNode = qs('[data-contact-email]');
+    const phoneNode = qs('[data-contact-phone]');
+    const birthdayNode = qs('[data-contact-birthday]');
+    const locationNode = qs('[data-contact-location]');
+
+    const person = data?.person ?? {};
+    const contact = data?.contact ?? {};
+
+    const fullName = safeText(person?.fullName);
+    const headline = safeText(person?.headline);
+    const email = safeText(contact?.email);
+    const phoneE164 = safeText(contact?.phone?.e164);
+    const phoneDisplay = safeText(contact?.phone?.display) || phoneE164;
+    const location = [safeText(contact?.location?.city), safeText(contact?.location?.state), safeText(contact?.location?.country)]
+      .filter(Boolean)
+      .join(', ');
+
+    if (nameNode && fullName) nameNode.textContent = fullName;
+    if (headlineNode && headline) headlineNode.textContent = headline;
+
+    if (emailNode && email) {
+      emailNode.textContent = email;
+      emailNode.setAttribute('href', `mailto:${email}`);
+    }
+
+    if (phoneNode && (phoneE164 || phoneDisplay)) {
+      phoneNode.textContent = phoneDisplay || phoneE164;
+      if (phoneE164) phoneNode.setAttribute('href', `tel:${phoneE164}`);
+    }
+
+    const birthdayIso = safeText(data?.person?.birthday?.iso) || safeText(data?.person?.birthday);
+    const birthdayDisplay = safeText(data?.person?.birthday?.display) || '';
+    if (birthdayNode && (birthdayIso || birthdayDisplay)) {
+      if (birthdayIso) birthdayNode.setAttribute('datetime', birthdayIso);
+      if (birthdayDisplay) birthdayNode.textContent = birthdayDisplay;
+    }
+
+    if (locationNode && location) locationNode.textContent = location;
+  };
+
   const init = async () => {
     const about = qs('[data-page="about"]');
     const resume = qs('[data-page="resume"]');
@@ -291,6 +334,7 @@
         })());
       if (!data) return;
 
+      renderSidebar(data);
       renderAbout(data, about);
       renderServices(data, about);
 

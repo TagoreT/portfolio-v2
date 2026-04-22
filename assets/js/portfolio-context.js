@@ -117,12 +117,13 @@
     return label || titleCase(categoryKey);
   };
 
-  const buildFilterButton = ({ label, isActive }) => {
+  const buildFilterButton = ({ label, key, isActive }) => {
     const li = document.createElement('li');
     li.className = 'filter-item';
 
     const btn = document.createElement('button');
     btn.setAttribute('data-filter-btn', '');
+    btn.dataset.filterKey = safeText(key);
     btn.textContent = label;
     if (isActive) btn.classList.add('active');
 
@@ -130,12 +131,13 @@
     return li;
   };
 
-  const buildSelectItem = ({ label }) => {
+  const buildSelectItem = ({ label, key }) => {
     const li = document.createElement('li');
     li.className = 'select-item';
 
     const btn = document.createElement('button');
     btn.setAttribute('data-select-item', '');
+    btn.dataset.selectKey = safeText(key);
     btn.textContent = label;
 
     li.appendChild(btn);
@@ -201,6 +203,9 @@
       img.src = getProjectImage(project, index);
       img.alt = project.name;
       img.loading = 'lazy';
+      img.decoding = 'async';
+      img.width = 800;
+      img.height = 600;
       figure.append(iconBox, img);
     }
 
@@ -354,15 +359,15 @@
     const selectPlaceholder = safeText(uiText?.selectPlaceholder) || allLabel;
 
     filterList.replaceChildren(
-      buildFilterButton({ label: allLabel, isActive: true }),
+      buildFilterButton({ label: allLabel, key: 'all', isActive: true }),
       ...orderedCategories.map((categoryKey) =>
-        buildFilterButton({ label: getCategoryLabel(categoryKey), isActive: false }),
+        buildFilterButton({ label: getCategoryLabel(categoryKey), key: categoryKey, isActive: false }),
       ),
     );
 
     selectList.replaceChildren(
-      buildSelectItem({ label: allLabel }),
-      ...orderedCategories.map((categoryKey) => buildSelectItem({ label: getCategoryLabel(categoryKey) })),
+      buildSelectItem({ label: allLabel, key: 'all' }),
+      ...orderedCategories.map((categoryKey) => buildSelectItem({ label: getCategoryLabel(categoryKey), key: categoryKey })),
     );
 
     setSelectedCategoryLabel(selectPlaceholder);

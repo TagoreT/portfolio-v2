@@ -7,10 +7,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tagore Athikela - Personal Portfolio</title>
 
+  <script src="./assets/js/site-config.js"></script>
+  <script>
+    (() => {
+      const site = window.siteConfig?.site ?? {};
+      const meta = window.siteConfig?.meta ?? {};
+      const github = window.siteConfig?.github ?? {};
+      const social = window.siteConfig?.social ?? {};
+
+      const normalizeBaseUrl = (value) => String(value ?? '').trim().replace(/\/+$/, '');
+      const baseUrl = normalizeBaseUrl(site.baseUrl) || window.location.origin;
+      const pageUrl = baseUrl + window.location.pathname.replace(/index\.html$/, '');
+      const ogImageUrl = meta.ogImagePath ? baseUrl + String(meta.ogImagePath) : '';
+
+      const setOrCreateMeta = (attrName, attrValue, content) => {
+        if (!content) return;
+        const selector = `meta[${attrName}="${attrValue}"]`;
+        const existing = document.head.querySelector(selector);
+        const el = existing ?? document.createElement('meta');
+        el.setAttribute(attrName, attrValue);
+        el.setAttribute('content', String(content));
+        if (!existing) document.head.appendChild(el);
+      };
+
+      const setOrCreateLink = (rel, href) => {
+        if (!href) return;
+        const selector = `link[rel="${rel}"]`;
+        const existing = document.head.querySelector(selector);
+        const el = existing ?? document.createElement('link');
+        el.setAttribute('rel', rel);
+        el.setAttribute('href', String(href));
+        if (!existing) document.head.appendChild(el);
+      };
+
+      if (meta.title) document.title = meta.title;
+      setOrCreateMeta('name', 'description', meta.description);
+      setOrCreateMeta('name', 'theme-color', site.themeColor);
+
+      setOrCreateLink('canonical', pageUrl);
+
+      setOrCreateMeta('property', 'og:title', meta.title);
+      setOrCreateMeta('property', 'og:description', meta.description);
+      setOrCreateMeta('property', 'og:type', 'website');
+      setOrCreateMeta('property', 'og:url', pageUrl);
+      setOrCreateMeta('property', 'og:locale', site.locale);
+      setOrCreateMeta('property', 'og:image', ogImageUrl);
+
+      setOrCreateMeta('name', 'twitter:card', 'summary_large_image');
+      setOrCreateMeta('name', 'twitter:title', meta.title);
+      setOrCreateMeta('name', 'twitter:description', meta.description);
+      setOrCreateMeta('name', 'twitter:image', ogImageUrl);
+
+      const sameAs = [github?.urls?.profile, social?.linkedin].filter(Boolean).map(String);
+
+      const personName = String(meta.title ?? '').split('—')[0]?.trim() || 'Portfolio';
+      const personHeadline = '';
+
+      const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: personName,
+        url: baseUrl,
+        sameAs,
+        jobTitle: personHeadline,
+      };
+
+      const scriptId = 'ld-json-person';
+      const existingLd = document.getElementById(scriptId);
+      const ldScript = existingLd ?? document.createElement('script');
+      ldScript.id = scriptId;
+      ldScript.type = 'application/ld+json';
+      ldScript.text = JSON.stringify(jsonLd);
+      if (!existingLd) document.head.appendChild(ldScript);
+    })();
+  </script>
+
   <!--
     - favicon
   -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./assets/images/my-avatar.png">
 
   <!--
     - custom css link
@@ -22,10 +99,14 @@
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!--
     - #MAIN
@@ -42,16 +123,17 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/avatar/coooder.webp" alt="Tagore Athikela" width="80" data-avatar-img>
+          <img src="./assets/images/avatar/coooder.webp" alt="Tagore Athikela" width="80" decoding="async"
+            data-avatar-img>
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Tagore Athikela">Tagore Athikela</h1>
+          <h1 class="name" title="Tagore Athikela" data-person-name>Tagore Athikela</h1>
 
-          <p class="title">Full Stack Developer</p>
+          <p class="title" data-person-headline>Full Stack Developer</p>
         </div>
 
-        <button class="info_more-btn" data-sidebar-btn>
+        <button class="info_more-btn" data-sidebar-btn aria-expanded="false" aria-controls="sidebar-contacts">
           <span>Show Contacts</span>
 
           <ion-icon name="chevron-down"></ion-icon>
@@ -59,7 +141,7 @@
 
       </div>
 
-      <div class="sidebar-info_more">
+      <div class="sidebar-info_more" id="sidebar-contacts">
 
         <div class="separator"></div>
 
@@ -74,7 +156,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:mail@tagoreathikela.in" class="contact-link">mail@tagoreathikela.in</a>
+              <a href="mailto:mail@tagoreathikela.in" class="contact-link" data-contact-email>mail@tagoreathikela.in</a>
             </div>
 
           </li>
@@ -88,7 +170,7 @@
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="tel:+917207210111" class="contact-link">+91 720 721 0111</a>
+              <a href="tel:+917207210111" class="contact-link" data-contact-phone>+91 720 721 0111</a>
             </div>
 
           </li>
@@ -102,7 +184,7 @@
             <div class="contact-info">
               <p class="contact-title">Birthday</p>
 
-              <time datetime="2002-03-19">March 19, 2002</time>
+              <time datetime="2002-03-19" data-contact-birthday>March 19, 2002</time>
             </div>
 
           </li>
@@ -116,7 +198,7 @@
             <div class="contact-info">
               <p class="contact-title">Location</p>
 
-              <address>Peddapuram, Andhra Pradesh, India</address>
+              <address data-contact-location>Peddapuram, Andhra Pradesh, India</address>
             </div>
 
           </li>
@@ -159,7 +241,7 @@
       - #main-content
     -->
 
-    <div class="main-content">
+    <div class="main-content" id="main-content">
 
       <!--
         - #NAVBAR
@@ -170,15 +252,15 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link  active" data-nav-link data-page-key="about">About</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
+            <button class="navbar-link" data-nav-link data-page-key="resume">Resume</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
+            <button class="navbar-link" data-nav-link data-page-key="portfolio">Portfolio</button>
           </li>
 
           <!-- <li class="navbar-item">
@@ -186,7 +268,7 @@
           </li> -->
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+            <button class="navbar-link" data-nav-link data-page-key="contact">Contact</button>
           </li>
 
         </ul>
@@ -251,205 +333,6 @@
           </div>
 
         </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <!-- <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section> -->
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-
-        <!--
-          - clients
-        -->
-        <!-- 
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Clients</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section> -->
 
       </article>
 
@@ -813,13 +696,13 @@
   <!--
     - custom js link
   -->
-  <script src="./assets/js/site-config.js"></script>
-  <script src="./assets/js/random-avatar.js"></script>
-  <script src="./assets/js/github-activity.js"></script>
-  <script src="./data/profile-context.data.js"></script>
-  <script src="./assets/js/profile-context.js"></script>
-  <script src="./assets/js/portfolio-context.js"></script>
-  <script src="./assets/js/script.js"></script>
+  <script defer src="./assets/js/random-avatar.js"></script>
+  <script defer src="./assets/js/github-activity.js"></script>
+  <script defer src="./data/profile-context.data.js"></script>
+  <script defer src="./assets/js/profile-context.js"></script>
+  <script defer src="./assets/js/portfolio-context.js"></script>
+  <script defer src="./assets/js/script.js"></script>
+  <script defer src="./assets/js/pwa.js"></script>
 
   <!--
     - ionicon link

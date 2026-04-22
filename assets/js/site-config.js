@@ -3,6 +3,23 @@
 
   window.siteConfig = window.siteConfig ?? {};
 
+  window.siteConfig.site = {
+    baseUrl: 'https://tagoreathikela.in',
+    locale: 'en_US',
+    themeColor: '#0f172a',
+  };
+
+  window.siteConfig.meta = {
+    title: 'Tagore Athikela — Personal Portfolio',
+    description:
+      'SaaS-focused Full-Stack Developer building premium UI, scalable backends, and security-first product flows.',
+    ogImagePath: '/assets/images/avatar/coooder.webp',
+  };
+
+  window.siteConfig.social = {
+    linkedin: 'https://www.linkedin.com/in/tagoreathikela/',
+  };
+
   window.siteConfig.github = {
     username: 'TagoreT',
     urls: {
