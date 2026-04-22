@@ -224,6 +224,58 @@
     });
   };
 
+  const renderServices = (data, aboutRoot) => {
+    if (!aboutRoot) return;
+    const list = qs('[data-service-list]', aboutRoot);
+    if (!list) return;
+
+    const servicesRaw = Array.isArray(data?.person?.services) ? data.person.services : [];
+    const services = servicesRaw
+      .map((s) => ({
+        key: safeText(s?.key),
+        title: safeText(s?.title),
+        description: safeText(s?.description),
+        icon: safeText(s?.icon),
+        iconAlt: safeText(s?.iconAlt),
+      }))
+      .filter((s) => s.title && s.description)
+      .slice(0, 6);
+
+    if (!services.length) return;
+
+    const items = services.map((s) => {
+      const li = document.createElement('li');
+      li.className = 'service-item';
+
+      const iconBox = document.createElement('div');
+      iconBox.className = 'service-icon-box';
+
+      const img = document.createElement('img');
+      img.src = s.icon || './assets/images/icon-dev.svg';
+      img.alt = s.iconAlt || s.title;
+      img.width = 40;
+      img.loading = 'lazy';
+      iconBox.appendChild(img);
+
+      const contentBox = document.createElement('div');
+      contentBox.className = 'service-content-box';
+
+      const h4 = document.createElement('h4');
+      h4.className = 'h4 service-item-title';
+      h4.textContent = s.title;
+
+      const p = document.createElement('p');
+      p.className = 'service-item-text';
+      p.textContent = s.description;
+
+      contentBox.append(h4, p);
+      li.append(iconBox, contentBox);
+      return li;
+    });
+
+    list.replaceChildren(...items);
+  };
+
   const init = async () => {
     const about = qs('[data-page="about"]');
     const resume = qs('[data-page="resume"]');
@@ -240,6 +292,7 @@
       if (!data) return;
 
       renderAbout(data, about);
+      renderServices(data, about);
 
       if (resume) {
         renderSummary(

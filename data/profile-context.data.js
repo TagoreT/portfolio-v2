@@ -22,7 +22,13 @@
           "I’m Tagore Athikela — a SaaS-focused Full‑Stack Developer who helps teams ship production‑ready products that look premium and run reliably. I turn complex Figma into pixel‑perfect, responsive UI, and back it with scalable backend foundations, clean data access, and security‑first implementation.",
           "I work best with ambitious teams that care about speed and quality: crisp UX, predictable engineering, and release-ready delivery. If you need someone who can own features end‑to‑end — from interface polish to auth, database, and deployment — I’m ready."
         ]
-      }
+      },
+      "services": [
+        { "key": "product-ui-ux", "title": "Product UI / UX", "description": "Figma → pixel-perfect, responsive interfaces with strong hierarchy, clarity, and conversion-focused UX.", "icon": "./assets/images/icon-ui.svg", "iconAlt": "design icon" },
+        { "key": "saas-full-stack", "title": "SaaS Full‑Stack Development", "description": "End-to-end features with scalable foundations: APIs, database integration, and clean architecture that ships fast.", "icon": "./assets/images/icon-saas.svg", "iconAlt": "development icon" },
+        { "key": "security-and-reliability", "title": "Security & Reliability", "description": "Security-first flows (auth + middleware patterns), safe data access, and production-ready engineering habits.", "icon": "./assets/images/icon-shield.svg", "iconAlt": "security icon" },
+        { "key": "travel", "title": "Travel & Exploration", "description": "Curious by nature — I travel to reset perspective, spark creativity, and come back with sharper product thinking.", "icon": "./assets/images/icon-travel.svg", "iconAlt": "travel icon" }
+      ]
     },
     "contact": {
       "phone": {
