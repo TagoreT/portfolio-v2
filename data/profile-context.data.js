@@ -220,18 +220,18 @@
     ],
     "projects": {
       "portfolioAndClientWork": [
-        { "name": "Biosure Lab Landing Page", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://biosure.vercel.app/" }] },
-        { "name": "Lavish Mandi Restaurant", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://lavish-mandi.vercel.app/" }] },
-        { "name": "QR Code Generator", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://qr-code-generator-seven-nu.vercel.app/" }] },
-        { "name": "QR Menu Manager", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://qr-menu-tan.vercel.app/login" }] },
-        { "name": "Hyderabad Tattoo Studio", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://tattoo-studio-gold.vercel.app/" }] },
-        { "name": "ServiceNow UX Services", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://servicesnow-ux.vercel.app/" }] },
-        { "name": "Money Lender Project", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://v0-moneylender-application.vercel.app/" }] },
+        { "name": "Mandapeta Sweet Mart Landing Page", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://mandapetasweetmart.vercel.app/" }] },
+        { "name": "EduCon", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://educon-three.vercel.app/" }] },
         { "name": "ElectroBike Landing Page", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://electrobike-landing.vercel.app/" }] },
         { "name": "Toola Product", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://toola-landing-page.vercel.app/" }] },
-        { "name": "EduCon", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://educon-three.vercel.app/" }] },
-        { "name": "Viswa Handyman", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://viswa-jade.vercel.app/" }] },
-        { "name": "Mandapeta Sweet Mart Landing Page", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://mandapetasweetmart.vercel.app/" }] }
+        { "name": "QR Menu Manager", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://qr-menu-tan.vercel.app/login" }] },
+        { "name": "ServiceNow UX Services", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://servicesnow-ux.vercel.app/" }] },
+        { "name": "Lavish Mandi Restaurant", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://lavish-mandi.vercel.app/" }] },
+        { "name": "Hyderabad Tattoo Studio", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://tattoo-studio-gold.vercel.app/" }] },
+        { "name": "Biosure Lab Landing Page", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://biosure.vercel.app/" }] },
+        { "name": "QR Code Generator", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://qr-code-generator-seven-nu.vercel.app/" }] },
+        { "name": "Money Lender Project", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://v0-moneylender-application.vercel.app/" }] },
+        { "name": "Viswa Handyman", "type": "web", "description": null, "tech": [], "links": [{ "type": "live", "label": "Live", "url": "https://viswa-jade.vercel.app/" }] }
       ],
       "academic": []
     },

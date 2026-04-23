@@ -240,7 +240,7 @@
   "projects": {
     "portfolioAndClientWork": [
       {
-        "name": "Biosure Lab Landing Page",
+        "name": "Mandapeta Sweet Mart Landing Page",
         "type": "web",
         "description": null,
         "tech": [],
@@ -248,12 +248,12 @@
           {
             "type": "live",
             "label": "Live",
-            "url": "https://biosure.vercel.app/"
+            "url": "https://mandapetasweetmart.vercel.app/"
           }
         ]
       },
       {
-        "name": "Lavish Mandi Restaurant",
+        "name": "EduCon",
         "type": "web",
         "description": null,
         "tech": [],
@@ -261,72 +261,7 @@
           {
             "type": "live",
             "label": "Live",
-            "url": "https://lavish-mandi.vercel.app/"
-          }
-        ]
-      },
-      {
-        "name": "QR Code Generator",
-        "type": "web",
-        "description": null,
-        "tech": [],
-        "links": [
-          {
-            "type": "live",
-            "label": "Live",
-            "url": "https://qr-code-generator-seven-nu.vercel.app/"
-          }
-        ]
-      },
-      {
-        "name": "QR Menu Manager",
-        "type": "web",
-        "description": null,
-        "tech": [],
-        "links": [
-          {
-            "type": "live",
-            "label": "Live",
-            "url": "https://qr-menu-tan.vercel.app/login"
-          }
-        ]
-      },
-      {
-        "name": "Hyderabad Tattoo Studio",
-        "type": "web",
-        "description": null,
-        "tech": [],
-        "links": [
-          {
-            "type": "live",
-            "label": "Live",
-            "url": "https://tattoo-studio-gold.vercel.app/"
-          }
-        ]
-      },
-      {
-        "name": "ServiceNow UX Services",
-        "type": "web",
-        "description": null,
-        "tech": [],
-        "links": [
-          {
-            "type": "live",
-            "label": "Live",
-            "url": "https://servicesnow-ux.vercel.app/"
-          }
-        ]
-      },
-      {
-        "name": "Money Lender Project",
-        "type": "web",
-        "description": null,
-        "tech": [],
-        "links": [
-          {
-            "type": "live",
-            "label": "Live",
-            "url": "https://v0-moneylender-application.vercel.app/"
+            "url": "https://educon-three.vercel.app/"
           }
         ]
       },
@@ -357,7 +292,7 @@
         ]
       },
       {
-        "name": "EduCon",
+        "name": "QR Menu Manager",
         "type": "web",
         "description": null,
         "tech": [],
@@ -365,7 +300,85 @@
           {
             "type": "live",
             "label": "Live",
-            "url": "https://educon-three.vercel.app/"
+            "url": "https://qr-menu-tan.vercel.app/login"
+          }
+        ]
+      },
+      {
+        "name": "ServiceNow UX Services",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://servicesnow-ux.vercel.app/"
+          }
+        ]
+      },
+      {
+        "name": "Lavish Mandi Restaurant",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://lavish-mandi.vercel.app/"
+          }
+        ]
+      },
+      {
+        "name": "Hyderabad Tattoo Studio",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://tattoo-studio-gold.vercel.app/"
+          }
+        ]
+      },
+      {
+        "name": "Biosure Lab Landing Page",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://biosure.vercel.app/"
+          }
+        ]
+      },
+      {
+        "name": "QR Code Generator",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://qr-code-generator-seven-nu.vercel.app/"
+          }
+        ]
+      },
+      {
+        "name": "Money Lender Project",
+        "type": "web",
+        "description": null,
+        "tech": [],
+        "links": [
+          {
+            "type": "live",
+            "label": "Live",
+            "url": "https://v0-moneylender-application.vercel.app/"
           }
         ]
       },
@@ -379,19 +392,6 @@
             "type": "live",
             "label": "Live",
             "url": "https://viswa-jade.vercel.app/"
-          }
-        ]
-      },
-      {
-        "name": "Mandapeta Sweet Mart Landing Page",
-        "type": "web",
-        "description": null,
-        "tech": [],
-        "links": [
-          {
-            "type": "live",
-            "label": "Live",
-            "url": "https://mandapetasweetmart.vercel.app/"
           }
         ]
       }
